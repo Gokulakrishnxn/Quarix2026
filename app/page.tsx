@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Footer } from "@/components/footer";
+import { ProfileMenu } from "@/components/profile-menu";
 import { SearchCommand } from "@/components/search-command";
 import { AuroraText } from "@/components/ui/aurora-text";
 
@@ -228,12 +229,7 @@ export default function Home() {
               </svg>
             </a>
             <ThemeToggle />
-            <div
-              aria-label="Profile avatar"
-              className="hidden size-6 place-items-center rounded-full bg-gradient-to-br from-emerald-300 to-sky-400 text-[11px] font-semibold text-white sm:grid"
-            >
-              G
-            </div>
+            <ProfileMenu />
             <details className="group relative lg:hidden">
               <summary className="flex size-7 cursor-pointer list-none items-center justify-center rounded-full text-zinc-950 transition hover:bg-zinc-100 hover:text-zinc-500 [&::-webkit-details-marker]:hidden dark:text-zinc-50 dark:hover:bg-white/10 dark:hover:text-zinc-400">
                 <span className="sr-only">Open navigation menu</span>
