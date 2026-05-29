@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quarix
+
+Quarix is a premium template and website service landing page built with Next.js, React, TypeScript, Tailwind CSS, Shadcn UI, Magic UI, Razorpay, and Resend.
+
+The site showcases ready-made templates, service packages, testimonials, a responsive checkout flow, post-payment thank-you pages, downloadable template access, and email notifications for both project requests and payment receipts.
+
+## Features
+
+- Responsive landing page with hero, showcase, testimonials, services, FAQ, and footer.
+- Templates page with live preview actions and checkout entry points.
+- Razorpay Standard Checkout integration with server-side order creation and payment signature verification.
+- Thank-you page after payment with confetti, template preview, source-code download, and live preview actions.
+- Test Mode Template for previewing the thank-you page without payment.
+- Resend email integration for service/contact requests and payment receipt emails.
+- Cmd/Ctrl + K search palette.
+- Light and dark theme support.
+
+## Tech Stack
+
+- Next.js App Router
+- React 19
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- Magic UI
+- Razorpay
+- Resend
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a local `.env` file:
+
+```env
+CONTACT_EMAIL=your-email@example.com
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL=Quarix <verified-sender@yourdomain.com>
+
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+NEXT_PUBLIC_RAZORPAY_KEY_ID=your_razorpay_key_id
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+npm run lint
+npm run build
+npm run start
+```
 
-## Learn More
+## Important Notes
 
-To learn more about Next.js, take a look at the following resources:
+- Do not commit `.env`; it contains private API keys.
+- Resend requires a verified sender/domain for production email delivery.
+- Razorpay secret keys must only be used on the server.
+- The downloadable files in `public/downloads` are placeholders and should be replaced with real template packages before production use.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/page.tsx` - Home page.
+- `app/templates/page.tsx` - Template listing page.
+- `app/get-access/[template]/page.tsx` - Checkout page.
+- `app/thank-you/[template]/page.tsx` - Post-payment access page.
+- `app/get-started/[service]/page.tsx` - Service inquiry page.
+- `app/api/create-order/route.ts` - Razorpay order creation.
+- `app/api/verify-payment/route.ts` - Razorpay signature verification and receipt email.
+- `app/api/contact/route.ts` - Project request email endpoint.
+- `components/` - Shared UI and page components.
+- `lib/email.ts` - Resend email helper.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy on Vercel or any platform that supports Next.js App Router. Add the same environment variables in the hosting dashboard before going live.
