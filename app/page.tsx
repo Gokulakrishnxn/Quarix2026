@@ -45,7 +45,7 @@ const showcaseCards = [
   },
   {
     title: "Creator Store",
-    description: "Beautiful commerce sections for templates, courses, and products.",
+    description: "Beautiful commerce sections for courses, products, and launches.",
     accent: "from-indigo-300 to-blue-500",
   },
 ];
@@ -60,14 +60,14 @@ const testimonials = [
   {
     name: "Guillermo Rauch",
     handle: "@rauchg",
-    quote: "Beautiful templates, clean defaults, and a great fit for teams building with Next.js.",
+    quote: "Clean design, thoughtful defaults, and a great fit for teams building with Next.js.",
     avatar: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   {
     name: "Mckay Wrigley",
     handle: "@mckaywrigley",
     quote:
-      "Need a beautiful landing page? Start here. The templates give you a strong base and still feel easy to customize.",
+      "Need a beautiful landing page? Start here. The Quarix team gives you a strong base and still keeps it easy to customize.",
     avatar: "https://randomuser.me/api/portraits/men/46.jpg",
     featured: true,
   },
@@ -86,7 +86,7 @@ const testimonials = [
   {
     name: "Alex",
     handle: "@vahaah",
-    quote: "This is my new favourite UI library. The templates look magical and ship-ready.",
+    quote: "This is my new favourite website partner. The pages look polished and ship-ready.",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
@@ -155,7 +155,7 @@ const faqs = [
   {
     question: "How fast can my website go live?",
     answer:
-      "Most template-based pages can launch in a few days. Fully custom business sites and AI-powered websites depend on scope, integrations, and content readiness.",
+      "Simple websites can launch in a few days. Fully custom business sites and AI-powered websites depend on scope, integrations, and content readiness.",
   },
   {
     question: "Will my website work on mobile devices?",
@@ -273,23 +273,22 @@ export default function Home() {
           </div>
 
           <h1 className="max-w-3xl text-balance text-3xl font-semibold tracking-[-0.055em] text-zinc-950 min-[380px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
-            Beautiful Templates.
+            Beautiful Websites.
             <br />
             Ship <AuroraText colors={["#38bdf8", "#6366f1", "#d946ef", "#38bdf8"]}>Faster.</AuroraText>
           </h1>
 
           <p className="mt-5 max-w-2xl text-pretty text-sm leading-6 text-zinc-600 sm:text-base dark:text-zinc-400">
-            10+ templates and 10+ landing page sections built with Next.js,
-            Typescript, Tailwind CSS, Shadcn, and Motion. Save thousands of
-            hours, create a beautiful landing page, and convert your visitors
-            into customers.
+            Custom websites, business pages, and AI-powered experiences built
+            with Next.js, TypeScript, Tailwind CSS, Shadcn, and Motion. Launch
+            faster with a polished site that converts visitors into customers.
           </p>
 
           <div className="mt-8 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
             <HeroShimmerLink href="/services" label="Get service support" />
             <HeroShimmerLink
-              href="/templates"
-              label="Browse Template"
+              href="/ai-agents"
+              label="Explore AI Agents"
               variant="secondary"
             />
           </div>
@@ -301,7 +300,7 @@ export default function Home() {
               Showcase
             </p>
             <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-4xl dark:text-white">
-              Templates that feel ready to ship.
+              Work that feels ready to ship.
             </h2>
           </div>
 
@@ -331,7 +330,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section-smooth scroll-reveal mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <section id="testimonials" className="section-smooth scroll-reveal mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance text-3xl font-semibold tracking-[-0.05em] text-zinc-950 sm:text-5xl dark:text-white">
               What People Are Saying

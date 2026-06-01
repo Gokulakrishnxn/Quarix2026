@@ -23,26 +23,6 @@ const navItems = [
 
 const templates = [
   {
-    slug: "codeforge-template",
-    name: "Codeforge Template",
-    description:
-      "A professional landing page template designed for developer tools and APIs. Showcase code snippets, highlight features, and display pricing plans with a polished responsive layout.",
-    price: "₹999 INR",
-    previewType: "code",
-    accent: "from-sky-500 via-cyan-400 to-blue-500",
-    techStack: ["Next", "React", "TS", "Tailwind", "Motion"],
-  },
-  {
-    slug: "dev-tool-template",
-    name: "Dev Tool Template",
-    description:
-      "A premium template for SaaS tools, AI products, and developer platforms. Includes conversion-ready hero blocks, pricing cards, testimonials, and launch-focused sections.",
-    price: "₹999 INR",
-    previewType: "pricing",
-    accent: "from-violet-500 via-fuchsia-400 to-indigo-500",
-    techStack: ["Next", "React", "TS", "Shadcn", "Motion"],
-  },
-  {
     slug: "portfolio",
     name: "Portfolio",
     description:
@@ -51,17 +31,6 @@ const templates = [
     previewType: "code",
     accent: "from-amber-300 via-orange-400 to-rose-500",
     techStack: ["Next", "React", "TS", "Tailwind", "Motion"],
-  },
-  {
-    slug: "test-mode-template",
-    name: "Test Mode Template",
-    description:
-      "A test template for previewing the thank-you page, download source code button, and live preview flow without payment.",
-    price: "Test Mode",
-    previewType: "code",
-    accent: "from-emerald-300 via-sky-400 to-blue-500",
-    techStack: ["No Payment", "Thank You", "Download", "Preview"],
-    testMode: true,
   },
 ];
 
@@ -234,11 +203,7 @@ export default function TemplatesPage() {
                     <ExternalLink className="ml-2 size-4" />
                   </a>
                   <GetAccessButton
-                    href={
-                      template.testMode
-                        ? `/thank-you/${template.slug}`
-                        : `/get-access/${template.slug}`
-                    }
+                    href={`/get-access/${template.slug}`}
                     price={template.price}
                   />
                 </div>

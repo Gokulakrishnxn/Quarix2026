@@ -70,8 +70,8 @@ export function Footer() {
 						Quarix
 					</Link>
 					<p className="mt-4 max-w-sm text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						Beautiful templates, landing sections, and AI-powered business
-						websites built to help you launch faster.
+						Beautiful websites, service pages, and AI-powered business
+						experiences built to help you launch faster.
 					</p>
 				</AnimatedContainer>
 

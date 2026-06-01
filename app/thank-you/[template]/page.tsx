@@ -5,26 +5,6 @@ import { ThankYouTemplateAccess } from "@/components/thank-you-template-access";
 
 const templates = [
   {
-    slug: "codeforge-template",
-    name: "Codeforge Template",
-    description:
-      "A professional landing page template for developer tools and APIs.",
-    downloadUrl: "/downloads/codeforge-template.txt",
-    livePreviewUrl: "/templates#codeforge-template",
-    previewType: "code",
-    accent: "from-sky-500 via-cyan-400 to-blue-500",
-  },
-  {
-    slug: "dev-tool-template",
-    name: "Dev Tool Template",
-    description:
-      "A premium template for SaaS tools, AI products, and developer platforms.",
-    downloadUrl: "/downloads/dev-tool-template.txt",
-    livePreviewUrl: "/templates#dev-tool-template",
-    previewType: "pricing",
-    accent: "from-violet-500 via-fuchsia-400 to-indigo-500",
-  },
-  {
     slug: "portfolio",
     name: "Portfolio",
     description:
@@ -33,16 +13,6 @@ const templates = [
     livePreviewUrl: "/templates#portfolio",
     previewType: "code",
     accent: "from-amber-300 via-orange-400 to-rose-500",
-  },
-  {
-    slug: "test-mode-template",
-    name: "Test Mode Template",
-    description:
-      "A test template for previewing the thank-you page, download source code button, and live preview flow without payment.",
-    downloadUrl: "/downloads/test-mode-template.txt",
-    livePreviewUrl: "/templates#test-mode-template",
-    previewType: "code",
-    accent: "from-emerald-300 via-sky-400 to-blue-500",
   },
 ];
 

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 const searchItems = [
   {
     title: "Templates",
-    description: "Browse premium Quarix website templates.",
+    description: "Browse available Quarix website templates.",
     href: "/templates",
     category: "Page",
   },
@@ -51,18 +51,6 @@ const searchItems = [
     description: "Read the Quarix terms and conditions.",
     href: "/terms",
     category: "Page",
-  },
-  {
-    title: "Codeforge Template",
-    description: "Developer tools and API landing page template.",
-    href: "/templates",
-    category: "Template",
-  },
-  {
-    title: "Dev Tool Template",
-    description: "SaaS and developer platform landing page template.",
-    href: "/templates",
-    category: "Template",
   },
 ];
 
@@ -214,7 +202,7 @@ export function SearchCommand({
                     openFirstResult();
                   }
                 }}
-                placeholder="Search pages, templates, services..."
+                placeholder="Search pages and services..."
                 className="h-14 flex-1 bg-transparent text-sm text-zinc-950 outline-none placeholder:text-zinc-400 dark:text-white"
               />
               <button

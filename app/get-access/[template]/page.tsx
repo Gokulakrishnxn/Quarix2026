@@ -5,30 +5,6 @@ import { GetAccessCheckout } from "@/components/get-access-checkout";
 
 const templates = [
   {
-    slug: "codeforge-template",
-    name: "Codeforge Template",
-    description:
-      "A professional landing page template for developer tools and APIs.",
-    price: "₹999",
-    priceLabel: "INR",
-    amount: 99900,
-    previewType: "code",
-    accent: "from-sky-500 via-cyan-400 to-blue-500",
-    downloadUrl: "/downloads/codeforge-template.txt",
-  },
-  {
-    slug: "dev-tool-template",
-    name: "Dev Tool Template",
-    description:
-      "A premium template for SaaS tools, AI products, and developer platforms.",
-    price: "₹999",
-    priceLabel: "INR",
-    amount: 99900,
-    previewType: "pricing",
-    accent: "from-violet-500 via-fuchsia-400 to-indigo-500",
-    downloadUrl: "/downloads/dev-tool-template.txt",
-  },
-  {
     slug: "portfolio",
     name: "Portfolio",
     description:
