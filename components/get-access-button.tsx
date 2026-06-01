@@ -28,7 +28,7 @@ export function GetAccessButton({ href, price }: GetAccessButtonProps) {
       type="button"
       onClick={handleClick}
       disabled={isLoading}
-      className="inline-flex h-11 items-center justify-center rounded-2xl bg-zinc-950 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800 disabled:cursor-wait disabled:opacity-80 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+      className="inline-flex h-11 w-full items-center justify-center rounded-2xl bg-zinc-950 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800 disabled:cursor-wait disabled:opacity-80 sm:w-auto dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
     >
       {isLoading ? (
         <>

@@ -10,11 +10,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Home", href: "/" },
   { label: "Templates", href: "/templates" },
+  { label: "Showcase", href: "/showcase" },
   { label: "Services", href: "/services" },
   { label: "AI Agents", href: "/ai-agents" },
-  { label: "Contact", href: "/contact" },
 ];
 
 type PageShellProps = {
@@ -55,7 +54,7 @@ export function PageShell({
           </Link>
 
           <div className="hidden items-center gap-5 text-xs font-medium text-zinc-800 lg:flex lg:gap-7 dark:text-zinc-200">
-            {navItems.slice(1).map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}

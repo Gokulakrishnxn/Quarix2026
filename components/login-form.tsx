@@ -252,7 +252,7 @@ export function LoginForm({
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Gokulakrishnan"
+                placeholder="Your name"
               />
             </Field>
           ) : null}

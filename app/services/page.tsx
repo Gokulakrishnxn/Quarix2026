@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { label: "Home", href: "/" },
   { label: "Templates", href: "/templates" },
   { label: "Showcase", href: "/showcase" },
   { label: "Services", href: "/services" },
@@ -120,7 +119,7 @@ export default function ServicesPage() {
           </Link>
 
           <div className="hidden items-center gap-5 text-xs font-medium text-zinc-800 lg:flex lg:gap-7 dark:text-zinc-200">
-            {navItems.slice(1).map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}

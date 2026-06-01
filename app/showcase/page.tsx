@@ -67,12 +67,6 @@ export default function ShowcasePage() {
                 <Menu className="size-4" />
               </summary>
               <div className="absolute right-0 top-11 w-48 rounded-2xl border border-zinc-200 bg-white p-2 text-sm font-medium text-zinc-800 shadow-xl shadow-black/10 dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-100 dark:shadow-black/40">
-                <Link
-                  href="/"
-                  className="block rounded-xl px-3 py-2 transition hover:bg-zinc-100 dark:hover:bg-white/10"
-                >
-                  Home
-                </Link>
                 {navItems.map((item) => (
                   <Link
                     key={item.label}

@@ -225,11 +225,14 @@ export default function TemplatesPage() {
                   {template.description}
                 </p>
 
-                <div className="mt-5 text-2xl font-semibold tracking-[-0.05em] text-zinc-950 sm:text-3xl lg:hidden dark:text-white">
-                  {template.price}
-                </div>
-
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href="#"
+                    className="inline-flex h-11 w-full items-center justify-center rounded-2xl border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-100 sm:w-auto dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                  >
+                    Live Preview
+                    <ExternalLink className="ml-2 size-4" />
+                  </a>
                   <GetAccessButton
                     href={
                       template.testMode
@@ -238,13 +241,6 @@ export default function TemplatesPage() {
                     }
                     price={template.price}
                   />
-                  <a
-                    href="#"
-                    className="inline-flex h-11 items-center justify-center rounded-2xl border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
-                  >
-                    Live Preview
-                    <ExternalLink className="ml-2 size-4" />
-                  </a>
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-2">

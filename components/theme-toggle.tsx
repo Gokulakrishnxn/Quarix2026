@@ -4,6 +4,7 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
+const THEME_CHANGE_EVENT = "quarix-theme-change";
 
 const listeners = new Set<() => void>();
 
@@ -18,25 +19,38 @@ function getPreferredTheme(): Theme {
     return savedTheme;
   }
 
+  const documentTheme = document.documentElement.dataset.theme;
+
+  if (documentTheme === "dark" || documentTheme === "light") {
+    return documentTheme;
+  }
+
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 function subscribe(listener: () => void) {
   listeners.add(listener);
+  window.addEventListener("storage", listener);
+  window.addEventListener(THEME_CHANGE_EVENT, listener);
 
   return () => {
     listeners.delete(listener);
+    window.removeEventListener("storage", listener);
+    window.removeEventListener(THEME_CHANGE_EVENT, listener);
   };
 }
 
 function applyTheme(theme: Theme) {
   document.documentElement.classList.toggle("dark", theme === "dark");
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
   window.localStorage.setItem("theme", theme);
 }
 
 function setThemePreference(theme: Theme) {
   applyTheme(theme);
   listeners.forEach((listener) => listener());
+  window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
 }
 
 export function ThemeToggle() {
