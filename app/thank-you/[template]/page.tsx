@@ -14,17 +14,7 @@ const templates = [
     previewType: "3d",
     accent: "from-violet-400 via-fuchsia-400 to-cyan-400",
     isFree: true,
-  },
-  {
-    slug: "portfolio",
-    name: "Portfolio",
-    description:
-      "A clean portfolio template for showcasing projects, skills, experience, and contact details.",
-    downloadUrl: "/downloads/portfolio-template.txt",
-    livePreviewUrl: "/templates#portfolio",
-    previewType: "code",
-    accent: "from-amber-300 via-orange-400 to-rose-500",
-    isFree: false,
+    previewImage: "/templates/3dportfolio.gif",
   },
 ];
 

@@ -3,20 +3,17 @@ import { notFound } from "next/navigation";
 
 import { GetAccessCheckout } from "@/components/get-access-checkout";
 
-const templates = [
-  {
-    slug: "portfolio",
-    name: "Portfolio",
-    description:
-      "A clean portfolio template for showcasing projects, skills, experience, and contact details.",
-    price: "₹1",
-    priceLabel: "INR",
-    amount: 100,
-    previewType: "code",
-    accent: "from-amber-300 via-orange-400 to-rose-500",
-    downloadUrl: "/downloads/portfolio-template.txt",
-  },
-];
+const templates = [] as {
+  slug: string;
+  name: string;
+  description: string;
+  price: string;
+  priceLabel: string;
+  amount: number;
+  previewType: string;
+  accent: string;
+  downloadUrl: string;
+}[];
 
 type PageProps = {
   params: Promise<{

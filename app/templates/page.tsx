@@ -41,17 +41,7 @@ const templates = [
     ],
     livePreviewUrl: "https://3dportfolio-quarix.vercel.app/",
     downloadUrl: "/downloads/3d-portfolio.zip",
-  },
-  {
-    slug: "portfolio",
-    name: "Portfolio",
-    description:
-      "A clean portfolio template for showcasing projects, skills, experience, and contact details.",
-    price: "₹1 INR",
-    isFree: false,
-    previewType: "code",
-    accent: "from-amber-300 via-orange-400 to-rose-500",
-    techStack: ["Next", "React", "TS", "Tailwind", "Motion"],
+    previewImage: "/templates/3dportfolio.gif",
   },
 ];
 
@@ -124,51 +114,6 @@ function SiteHeader() {
 }
 
 function TemplatePreview({ type }: { type: string }) {
-  if (type === "3d") {
-    return (
-      <div className="relative flex h-full items-center justify-center overflow-hidden p-4 sm:p-6">
-        <div
-          className="relative w-full max-w-sm"
-          style={{ perspective: "900px" }}
-        >
-          <div
-            className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-violet-500/20 sm:p-6"
-            style={{ transform: "rotateX(12deg) rotateY(-14deg)" }}
-          >
-            <div className="mb-4 flex items-center justify-between">
-              <span className="rounded-full border border-violet-400/30 bg-violet-400/10 px-3 py-1 text-[10px] font-semibold text-violet-200">
-                3D Creator
-              </span>
-              <span className="size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
-            </div>
-            <h3 className="text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl">
-              Build in
-              <span className="block bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
-                three dimensions
-              </span>
-            </h3>
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              {["Work", "About", "Contact"].map((item, index) => (
-                <div
-                  key={item}
-                  className={`rounded-xl border px-2 py-3 text-center text-[10px] font-medium text-zinc-300 ${
-                    index === 1
-                      ? "border-fuchsia-400/40 bg-fuchsia-400/10"
-                      : "border-white/10 bg-white/[0.03]"
-                  }`}
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-            <div className="absolute -right-6 -top-6 size-20 rounded-2xl border border-cyan-400/30 bg-cyan-400/10 blur-[1px]" />
-            <div className="absolute -bottom-8 -left-4 size-24 rounded-full bg-gradient-to-br from-violet-500/30 to-fuchsia-500/20 blur-2xl" />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   if (type === "pricing") {
     return (
       <div className="grid h-full grid-cols-3 gap-2 p-3 sm:gap-3 sm:p-6">
@@ -293,17 +238,34 @@ export default function TemplatesPage() {
               </div>
 
               <div className="order-1 lg:order-2">
-                <div className="smooth-card preview-float relative min-h-[240px] overflow-hidden rounded-[1.5rem] border border-zinc-900/10 bg-[#07070a] shadow-2xl shadow-black/20 sm:min-h-[360px] dark:border-white/10">
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:56px_56px]" />
-                  <div
-                    className={`absolute -left-24 top-1/3 size-64 rounded-full bg-gradient-to-br ${template.accent} opacity-20 blur-3xl`}
-                  />
-                  <div
-                    className={`absolute -right-20 bottom-0 size-56 rounded-full bg-gradient-to-br ${template.accent} opacity-15 blur-3xl`}
-                  />
-                  <div className="relative h-full min-h-[240px] sm:min-h-[360px]">
-                    <TemplatePreview type={template.previewType} />
-                  </div>
+                <div
+                  className={`smooth-card preview-float relative overflow-hidden rounded-[1.5rem] border border-zinc-900/10 bg-[#07070a] shadow-2xl shadow-black/20 dark:border-white/10 ${
+                    template.previewImage
+                      ? "aspect-[16/10] w-full"
+                      : "min-h-[240px] sm:min-h-[360px]"
+                  }`}
+                >
+                  {template.previewImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={template.previewImage}
+                      alt={`${template.name} template preview`}
+                      className="absolute inset-0 h-full w-full object-cover object-top"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:56px_56px]" />
+                      <div
+                        className={`absolute -left-24 top-1/3 size-64 rounded-full bg-gradient-to-br ${template.accent} opacity-20 blur-3xl`}
+                      />
+                      <div
+                        className={`absolute -right-20 bottom-0 size-56 rounded-full bg-gradient-to-br ${template.accent} opacity-15 blur-3xl`}
+                      />
+                      <div className="relative min-h-[240px] sm:min-h-[360px]">
+                        <TemplatePreview type={template.previewType} />
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </article>

@@ -15,6 +15,7 @@ type ThankYouTemplate = {
   previewType: string;
   accent: string;
   isFree?: boolean;
+  previewImage?: string;
 };
 
 type ThankYouTemplateAccessProps = {
@@ -24,53 +25,21 @@ type ThankYouTemplateAccessProps = {
 function TemplateImageCard({
   type,
   accent,
+  previewImage,
 }: {
   type: string;
   accent: string;
+  previewImage?: string;
 }) {
-  if (type === "3d") {
+  if (previewImage) {
     return (
-      <div className="relative min-h-[22rem] overflow-hidden rounded-[2rem] border border-white/10 p-5 sm:min-h-[420px] sm:p-8">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:44px_44px]" />
-        <div
-          className={`absolute -bottom-20 left-1/2 size-64 -translate-x-1/2 rounded-full bg-gradient-to-br ${accent} opacity-25 blur-3xl`}
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[2rem] border border-white/10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={previewImage}
+          alt="3D Portfolio template preview"
+          className="absolute inset-0 h-full w-full object-cover object-top"
         />
-        <div
-          className="relative flex min-h-72 items-center justify-center sm:min-h-[356px]"
-          style={{ perspective: "900px" }}
-        >
-          <div
-            className="w-full max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-violet-500/20 sm:p-6"
-            style={{ transform: "rotateX(12deg) rotateY(-14deg)" }}
-          >
-            <div className="mb-4 flex items-center justify-between">
-              <span className="rounded-full border border-violet-400/30 bg-violet-400/10 px-3 py-1 text-[10px] font-semibold text-violet-200">
-                3D Creator
-              </span>
-              <span className="size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
-            </div>
-            <h3 className="text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl">
-              Build in
-              <span className="block bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
-                three dimensions
-              </span>
-            </h3>
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              {["Work", "About", "Contact"].map((item, index) => (
-                <div
-                  key={item}
-                  className={`rounded-xl border px-2 py-3 text-center text-[10px] font-medium text-zinc-300 ${
-                    index === 1
-                      ? "border-fuchsia-400/40 bg-fuchsia-400/10"
-                      : "border-white/10 bg-white/[0.03]"
-                  }`}
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
@@ -206,6 +175,7 @@ export function ThankYouTemplateAccess({
             <TemplateImageCard
               type={template.previewType}
               accent={template.accent}
+              previewImage={template.previewImage}
             />
             <aside className="flex flex-col justify-between rounded-[2rem] border border-zinc-200 p-5 text-left shadow-sm sm:p-6 dark:border-white/10 dark:shadow-none">
               <div>
