@@ -11,6 +11,13 @@ const searchItems = [
     category: "Page",
   },
   {
+    title: "3D Portfolio",
+    description:
+      "Free interactive 3D creator portfolio with magnetic hover and scroll animations.",
+    href: "/templates#3d-portfolio",
+    category: "Template",
+  },
+  {
     title: "Showcase",
     description: "Explore featured Quarix project cards.",
     href: "/showcase",

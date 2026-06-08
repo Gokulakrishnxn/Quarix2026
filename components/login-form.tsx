@@ -5,7 +5,7 @@ import Link from "next/link";
 import { type FormEvent, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { getSupabaseBrowserClient } from "@/lib/supabase-client";
+import { tryGetSupabaseBrowserClient } from "@/lib/supabase-client";
 import { Button } from "@/components/ui/button";
 import {
   Field,
@@ -58,7 +58,13 @@ export function LoginForm({
     setUnconfirmedEmail("");
 
     try {
-      const supabase = getSupabaseBrowserClient();
+      const supabase = tryGetSupabaseBrowserClient();
+      if (!supabase) {
+        setStatus("error");
+        setMessage("Authentication is not configured. Check your Supabase env variables.");
+        return;
+      }
+
       const redirectTo = `${window.location.origin}/auth/callback`;
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "github",
@@ -95,7 +101,12 @@ export function LoginForm({
     setUnconfirmedEmail("");
 
     try {
-      const supabase = getSupabaseBrowserClient();
+      const supabase = tryGetSupabaseBrowserClient();
+      if (!supabase) {
+        setStatus("error");
+        setMessage("Authentication is not configured. Check your Supabase env variables.");
+        return;
+      }
 
       if (isSignIn) {
         const { error } = await supabase.auth.signInWithPassword({
@@ -176,7 +187,13 @@ export function LoginForm({
     setMessage("Sending confirmation email...");
 
     try {
-      const supabase = getSupabaseBrowserClient();
+      const supabase = tryGetSupabaseBrowserClient();
+      if (!supabase) {
+        setStatus("error");
+        setMessage("Authentication is not configured. Check your Supabase env variables.");
+        return;
+      }
+
       const { error } = await supabase.auth.resend({
         type: "signup",
         email: unconfirmedEmail,

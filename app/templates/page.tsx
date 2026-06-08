@@ -23,11 +23,32 @@ const navItems = [
 
 const templates = [
   {
+    slug: "3d-portfolio",
+    name: "3D Portfolio",
+    description:
+      "Elevate your digital presence with this premium, highly interactive 3D Creator portfolio template featuring magnetic hover effects and dynamic scroll-driven animations.",
+    price: "Free",
+    isFree: true,
+    previewType: "3d",
+    accent: "from-violet-400 via-fuchsia-400 to-cyan-400",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Vite",
+      "motionsites.ai",
+    ],
+    livePreviewUrl: "https://3dportfolio-quarix.vercel.app/",
+    downloadUrl: "/downloads/3d-portfolio.zip",
+  },
+  {
     slug: "portfolio",
     name: "Portfolio",
     description:
       "A clean portfolio template for showcasing projects, skills, experience, and contact details.",
     price: "₹1 INR",
+    isFree: false,
     previewType: "code",
     accent: "from-amber-300 via-orange-400 to-rose-500",
     techStack: ["Next", "React", "TS", "Tailwind", "Motion"],
@@ -103,6 +124,51 @@ function SiteHeader() {
 }
 
 function TemplatePreview({ type }: { type: string }) {
+  if (type === "3d") {
+    return (
+      <div className="relative flex h-full items-center justify-center overflow-hidden p-4 sm:p-6">
+        <div
+          className="relative w-full max-w-sm"
+          style={{ perspective: "900px" }}
+        >
+          <div
+            className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-violet-500/20 sm:p-6"
+            style={{ transform: "rotateX(12deg) rotateY(-14deg)" }}
+          >
+            <div className="mb-4 flex items-center justify-between">
+              <span className="rounded-full border border-violet-400/30 bg-violet-400/10 px-3 py-1 text-[10px] font-semibold text-violet-200">
+                3D Creator
+              </span>
+              <span className="size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
+            </div>
+            <h3 className="text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl">
+              Build in
+              <span className="block bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
+                three dimensions
+              </span>
+            </h3>
+            <div className="mt-5 grid grid-cols-3 gap-2">
+              {["Work", "About", "Contact"].map((item, index) => (
+                <div
+                  key={item}
+                  className={`rounded-xl border px-2 py-3 text-center text-[10px] font-medium text-zinc-300 ${
+                    index === 1
+                      ? "border-fuchsia-400/40 bg-fuchsia-400/10"
+                      : "border-white/10 bg-white/[0.03]"
+                  }`}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+            <div className="absolute -right-6 -top-6 size-20 rounded-2xl border border-cyan-400/30 bg-cyan-400/10 blur-[1px]" />
+            <div className="absolute -bottom-8 -left-4 size-24 rounded-full bg-gradient-to-br from-violet-500/30 to-fuchsia-500/20 blur-2xl" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (type === "pricing") {
     return (
       <div className="grid h-full grid-cols-3 gap-2 p-3 sm:gap-3 sm:p-6">
@@ -196,14 +262,20 @@ export default function TemplatesPage() {
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <a
-                    href="#"
+                    href={template.livePreviewUrl ?? "#"}
+                    target={template.livePreviewUrl ? "_blank" : undefined}
+                    rel={template.livePreviewUrl ? "noreferrer" : undefined}
                     className="inline-flex h-11 w-full items-center justify-center rounded-2xl border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-100 sm:w-auto dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
                   >
                     Live Preview
                     <ExternalLink className="ml-2 size-4" />
                   </a>
                   <GetAccessButton
-                    href={`/get-access/${template.slug}`}
+                    href={
+                      template.isFree
+                        ? `/thank-you/${template.slug}`
+                        : `/get-access/${template.slug}`
+                    }
                     price={template.price}
                   />
                 </div>

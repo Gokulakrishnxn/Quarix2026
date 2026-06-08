@@ -25,3 +25,11 @@ export function getSupabaseBrowserClient() {
 
   return client;
 }
+
+export function tryGetSupabaseBrowserClient() {
+  try {
+    return getSupabaseBrowserClient();
+  } catch {
+    return null;
+  }
+}

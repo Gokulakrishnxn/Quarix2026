@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { getSupabaseBrowserClient } from "@/lib/supabase-client";
+import { tryGetSupabaseBrowserClient } from "@/lib/supabase-client";
 
 export default function AuthCallbackPage() {
   const [message, setMessage] = useState("Completing GitHub sign in...");
@@ -18,7 +18,12 @@ export default function AuthCallbackPage() {
       }
 
       try {
-        const supabase = getSupabaseBrowserClient();
+        const supabase = tryGetSupabaseBrowserClient();
+        if (!supabase) {
+          setMessage("Authentication is not configured. Check your Supabase env variables.");
+          return;
+        }
+
         const { error } = await supabase.auth.exchangeCodeForSession(code);
 
         if (error) {

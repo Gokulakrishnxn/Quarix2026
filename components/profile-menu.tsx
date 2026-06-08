@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 
-import { getSupabaseBrowserClient } from "@/lib/supabase-client";
+import { tryGetSupabaseBrowserClient } from "@/lib/supabase-client";
 
 export function ProfileMenu() {
   const [user, setUser] = useState<User | null>(null);
@@ -13,16 +13,27 @@ export function ProfileMenu() {
 
   useEffect(() => {
     let isMounted = true;
-    const supabase = getSupabaseBrowserClient();
+    const supabase = tryGetSupabaseBrowserClient();
 
-    supabase.auth.getUser().then(({ data }) => {
-      if (!isMounted) {
-        return;
-      }
+    if (!supabase) {
+      return;
+    }
 
-      setUser(data.user);
-      setIsLoading(false);
-    });
+    supabase.auth
+      .getUser()
+      .then(({ data }) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setUser(data.user);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      });
 
     const {
       data: { subscription },
@@ -59,7 +70,11 @@ export function ProfileMenu() {
   }, [user]);
 
   async function handleSignOut() {
-    const supabase = getSupabaseBrowserClient();
+    const supabase = tryGetSupabaseBrowserClient();
+    if (!supabase) {
+      return;
+    }
+
     await supabase.auth.signOut();
     detailsRef.current?.removeAttribute("open");
     setUser(null);

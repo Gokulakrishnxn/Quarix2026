@@ -5,6 +5,17 @@ import { ThankYouTemplateAccess } from "@/components/thank-you-template-access";
 
 const templates = [
   {
+    slug: "3d-portfolio",
+    name: "3D Portfolio",
+    description:
+      "Elevate your digital presence with this premium, highly interactive 3D Creator portfolio template featuring magnetic hover effects and dynamic scroll-driven animations.",
+    downloadUrl: "/downloads/3d-portfolio.zip",
+    livePreviewUrl: "https://3dportfolio-quarix.vercel.app/",
+    previewType: "3d",
+    accent: "from-violet-400 via-fuchsia-400 to-cyan-400",
+    isFree: true,
+  },
+  {
     slug: "portfolio",
     name: "Portfolio",
     description:
@@ -13,6 +24,7 @@ const templates = [
     livePreviewUrl: "/templates#portfolio",
     previewType: "code",
     accent: "from-amber-300 via-orange-400 to-rose-500",
+    isFree: false,
   },
 ];
 
